@@ -1,0 +1,9 @@
+@startuml
+
+App -> AppServer: Login Request
+AppServer -> AuthServer: User Validation
+
+AuthServer --> AppServer: Validation Response
+AppServer --> App: Login Response
+
+@enduml
