@@ -33,4 +33,8 @@ class MemoryBlankQuizRepository : BlankQuizRepository {
         blankQuizzes.removeIf { it.id.sameAs(blankQuizId) }
     }
 
+    override fun getAll(): List<BlankQuiz> {
+        return blankQuizzes.toList()
+    }
+
 }

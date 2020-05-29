@@ -5,4 +5,5 @@ interface BlankQuizRepository {
     fun save(blankQuiz: BlankQuiz)
     fun nextBlankQuizId(): BlankQuizId
     fun delete(blankQuizId: BlankQuizId)
+    fun getAll(): List<BlankQuiz>
 }

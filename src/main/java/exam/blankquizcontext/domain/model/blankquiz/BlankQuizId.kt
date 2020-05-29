@@ -18,4 +18,8 @@ class BlankQuizId(private val id: String) : ValueObject<BlankQuizId> {
     override fun hashCode(): Int {
         return id.hashCode()
     }
+
+    override fun toString(): String {
+        return id
+    }
 }

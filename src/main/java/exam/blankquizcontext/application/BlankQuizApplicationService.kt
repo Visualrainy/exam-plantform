@@ -1,5 +1,7 @@
 package exam.blankquizcontext.application
 
+import exam.blankquizcontext.application.presentation.BlankQuizCreateCommand
+import exam.blankquizcontext.application.presentation.BlankQuizUpdateCommand
 import exam.blankquizcontext.domain.model.blankquiz.BlankQuiz
 import exam.blankquizcontext.domain.model.blankquiz.BlankQuizId
 import exam.blankquizcontext.domain.model.blankquiz.BlankQuizRepository
@@ -27,5 +29,9 @@ class BlankQuizApplicationService @Autowired constructor(private val blankQuizRe
 
     fun deleteBlankQuiz(id: BlankQuizId) {
         blankQuizRepository.delete(id)
+    }
+
+    fun getAll(): List<BlankQuiz> {
+        return blankQuizRepository.getAll()
     }
 }
