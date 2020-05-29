@@ -9,7 +9,11 @@ import java.util.*
 
 @Repository
 class MemoryBlankQuizRepository : BlankQuizRepository {
-    private var blankQuizzes: List<BlankQuiz> = LinkedList()
+    companion object {
+        private const val BLANK_QUIZ_ID_PREFIX = "blankquiz-"
+    }
+
+    private var blankQuizzes = hashSetOf<BlankQuiz>()
 
     override fun find(blankQuizId: BlankQuizId): BlankQuiz {
         return blankQuizzes.asSequence()
@@ -17,8 +21,12 @@ class MemoryBlankQuizRepository : BlankQuizRepository {
                 .firstOrNull() ?: throw NoSuchBlankQuizException(blankQuizId)
     }
 
-    override fun save() {
+    override fun save(blankQuiz: BlankQuiz) {
+        blankQuizzes.add(blankQuiz)
+    }
 
+    override fun nextBlankQuizId(): BlankQuizId {
+        return BlankQuizId(BLANK_QUIZ_ID_PREFIX + UUID.randomUUID().toString())
     }
 
 }
