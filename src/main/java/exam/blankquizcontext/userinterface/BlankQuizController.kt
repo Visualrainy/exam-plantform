@@ -1,9 +1,9 @@
 package exam.blankquizcontext.userinterface
 
 import exam.blankquizcontext.application.BlankQuizApplicationService
-import exam.blankquizcontext.application.presentation.BlankQuizCreateCommand
-import exam.blankquizcontext.application.presentation.BlankQuizResponse
-import exam.blankquizcontext.application.presentation.BlankQuizUpdateCommand
+import exam.blankquizcontext.userinterface.presentation.BlankQuizCreateCommand
+import exam.blankquizcontext.userinterface.presentation.BlankQuizResponse
+import exam.blankquizcontext.userinterface.presentation.BlankQuizUpdateCommand
 import exam.blankquizcontext.common.mapper.ModelMapperFactory
 import exam.blankquizcontext.domain.model.blankquiz.BlankQuizId
 import org.springframework.beans.factory.annotation.Autowired

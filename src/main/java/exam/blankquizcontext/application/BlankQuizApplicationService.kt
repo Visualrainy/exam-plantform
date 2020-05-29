@@ -1,7 +1,7 @@
 package exam.blankquizcontext.application
 
-import exam.blankquizcontext.application.presentation.BlankQuizCreateCommand
-import exam.blankquizcontext.application.presentation.BlankQuizUpdateCommand
+import exam.blankquizcontext.userinterface.presentation.BlankQuizCreateCommand
+import exam.blankquizcontext.userinterface.presentation.BlankQuizUpdateCommand
 import exam.blankquizcontext.domain.model.blankquiz.BlankQuiz
 import exam.blankquizcontext.domain.model.blankquiz.BlankQuizId
 import exam.blankquizcontext.domain.model.blankquiz.BlankQuizRepository

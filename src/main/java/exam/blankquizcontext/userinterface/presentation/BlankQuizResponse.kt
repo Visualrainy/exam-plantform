@@ -1,4 +1,4 @@
-package exam.blankquizcontext.application.presentation
+package exam.blankquizcontext.userinterface.presentation
 
 data class BlankQuizResponse(var id: String?,
                              var number: String?,
