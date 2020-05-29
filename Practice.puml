@@ -1,0 +1,113 @@
+@startuml
+package examination <<Aggregate>> {
+    class Examination <<Aggregate Root>> {
+        id: ExaminationId
+        paper: PaperInfo
+        createTime: LocalDateTime
+        startTime: LocalDateTime
+        endTime: LocalDateTime
+        teacherId: String
+
+        create(): Examination
+    }
+
+    Examination "1" *--> "1" PaperInfo
+    class "Paper" as PaperInfo <<Value Object>> {
+        blankQuizzes: List<BlankQuizInfo>
+    }
+
+    PaperInfo "1" *--> "5..20" BlankQuizInfo
+    class BlankQuizInfo <<Value Object>> {
+        number: int
+        score: int
+    }
+}
+
+package paper <<Aggregate>> {
+    class Paper <<Aggregate Root>> {
+        id: PaperId
+        createTime: LocalDateTime
+        updateTime: LocalDateTime
+        blankQuizzes: List<BlankQuiz>
+        assemble(): Paper
+        reassemble()
+    }
+
+    Paper "1" *--> "5..20" BlankQuiz
+    class BlankQuiz <<Value Object>> {
+        number: int
+        score: int
+        check(): boolean
+    }
+}
+
+package answersheet <<Aggregate>> {
+    AnswerSheet "1" --> "1" Examination
+    class AnswerSheet <<Aggregate Root>> {
+        id: answerSheetId
+        studentId: StudentId
+        examinationId: ExaminationId
+        certificationId: CertificationId
+        score: int
+
+        assign()
+        handIn()
+        submit()
+        review(): answerSheetResult
+    }
+}
+
+package quiz <<Aggregate>> {
+    class QuizBank <<Aggregate Root>> {
+        id: QuizBankId
+        createTime: LocalDateTime
+        updateTime: LocalDateTime
+
+        create(): QuizBank
+        update()
+        delete()
+    }
+}
+
+package course <<Aggregate>> {
+    class Course <<Aggregate Root>> {
+        id: CourseId
+        examinationInfo: ExaminationInfo
+        videos: List<Video>
+        createTime: LocalDateTime
+        updateTime: LocalDateTime
+
+        create(): Course
+        update()
+        publish()
+    }
+
+    Course "1" *--> "1" ExaminationInfo
+    class "Examination" as ExaminationInfo <<Value Object>> {
+        subject: String
+        template: ExaminationTemplate
+    }
+
+    Course "1" *--> "n" Video
+    class Video <<Value Object>> {
+        url: String
+    }
+}
+
+package certification <<Aggregate>> {
+    AnswerSheet "1" --> "1" Certification
+    class Certification <<Aggregate>> {
+        id: CertificationId
+        createTime: LocalDateTime
+        course: CourseInfo
+
+        generate(): Certification
+    }
+
+    Certification "1" *--> "1" CourseInfo
+    class "Course" as CourseInfo <<Value Object>> {
+        name: String
+    }
+}
+
+@enduml
