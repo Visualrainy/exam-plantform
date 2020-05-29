@@ -1,4 +1,4 @@
-package exam.blankquizContext.domain.shared
+package exam.blankquizcontext.domain.shared
 
 interface ValueObject<T> {
     fun sameAs(other: T): Boolean

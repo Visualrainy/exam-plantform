@@ -1,8 +1,8 @@
-package exam.blankquizContext.application
+package exam.blankquizcontext.application
 
-import exam.blankquizContext.domain.model.blankquiz.BlankQuiz
-import exam.blankquizContext.domain.model.blankquiz.BlankQuizId
-import exam.blankquizContext.domain.model.blankquiz.BlankQuizRepository
+import exam.blankquizcontext.domain.model.blankquiz.BlankQuiz
+import exam.blankquizcontext.domain.model.blankquiz.BlankQuizId
+import exam.blankquizcontext.domain.model.blankquiz.BlankQuizRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 

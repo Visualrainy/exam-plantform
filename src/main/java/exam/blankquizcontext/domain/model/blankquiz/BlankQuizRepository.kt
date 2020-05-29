@@ -1,4 +1,4 @@
-package exam.blankquizContext.domain.model.blankquiz
+package exam.blankquizcontext.domain.model.blankquiz
 
 interface BlankQuizRepository {
     fun find(blankQuizId: BlankQuizId): BlankQuiz

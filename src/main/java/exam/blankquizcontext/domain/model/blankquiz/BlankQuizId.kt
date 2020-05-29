@@ -1,6 +1,6 @@
-package exam.blankquizContext.domain.model.blankquiz
+package exam.blankquizcontext.domain.model.blankquiz
 
-import exam.blankquizContext.domain.shared.ValueObject
+import exam.blankquizcontext.domain.shared.ValueObject
 
 
 class BlankQuizId(private val id: String) : ValueObject<BlankQuizId> {

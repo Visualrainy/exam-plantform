@@ -1,9 +1,9 @@
-package exam.blankquizContext.infrastructure
+package exam.blankquizcontext.infrastructure
 
-import exam.blankquizContext.domain.model.blankquiz.BlankQuiz
-import exam.blankquizContext.domain.model.blankquiz.BlankQuizId
-import exam.blankquizContext.domain.model.blankquiz.BlankQuizRepository
-import exam.blankquizContext.domain.model.blankquiz.NoSuchBlankQuizException
+import exam.blankquizcontext.domain.model.blankquiz.BlankQuiz
+import exam.blankquizcontext.domain.model.blankquiz.BlankQuizId
+import exam.blankquizcontext.domain.model.blankquiz.BlankQuizRepository
+import exam.blankquizcontext.domain.model.blankquiz.NoSuchBlankQuizException
 import org.springframework.stereotype.Repository
 import java.util.*
 

@@ -1,6 +1,6 @@
-package exam.blankquizContext.domain.model.blankquiz
+package exam.blankquizcontext.domain.model.blankquiz
 
-import exam.blankquizContext.domain.shared.Entity
+import exam.blankquizcontext.domain.shared.Entity
 
 class BlankQuiz private constructor(val id: BlankQuizId,
                                     val number: String,
