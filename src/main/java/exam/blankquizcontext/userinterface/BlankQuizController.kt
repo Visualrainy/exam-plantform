@@ -29,12 +29,12 @@ class BlankQuizController @Autowired constructor(val blankQuizApplicationService
 
     @PutMapping("/{id}")
     fun updateBlankQuiz(@PathVariable id: BlankQuizId, @RequestBody blankQuizUpdateCommand: BlankQuizUpdateCommand) {
-        blankQuizApplicationService.updateBlankQuiz(id, blankQuizUpdateCommand)
+        blankQuizApplicationService.reviseBlankQuiz(id, blankQuizUpdateCommand)
     }
 
     @DeleteMapping("/{id}")
     fun deleteBlankQuiz(@PathVariable id: BlankQuizId) {
-        blankQuizApplicationService.deleteBlankQuiz(id)
+        blankQuizApplicationService.removeBlankQuiz(id)
     }
 
 }

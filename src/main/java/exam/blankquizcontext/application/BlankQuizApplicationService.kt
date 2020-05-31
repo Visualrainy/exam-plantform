@@ -20,14 +20,14 @@ class BlankQuizApplicationService @Autowired constructor(private val blankQuizRe
         return blankQuiz
     }
 
-    fun updateBlankQuiz(id: BlankQuizId, command: BlankQuizUpdateCommand) {
+    fun reviseBlankQuiz(id: BlankQuizId, command: BlankQuizUpdateCommand) {
         val blankQuiz = blankQuizRepository.find(id)
 
-        blankQuiz.update(command.score, command.description)
+        blankQuiz.revise(command.score, command.description)
         blankQuizRepository.save(blankQuiz)
     }
 
-    fun deleteBlankQuiz(id: BlankQuizId) {
+    fun removeBlankQuiz(id: BlankQuizId) {
         blankQuizRepository.delete(id)
     }
 

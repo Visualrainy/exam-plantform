@@ -22,7 +22,7 @@ class BlankQuiz private constructor(val id: BlankQuizId,
         }
     }
 
-    fun update(score: Int, description: String) {
+    fun revise(score: Int, description: String) {
         validateBlankQuizScore(score)
         this.score = score
         this.description = description
