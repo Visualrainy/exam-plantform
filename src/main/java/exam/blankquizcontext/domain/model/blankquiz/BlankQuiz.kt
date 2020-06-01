@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 class BlankQuiz private constructor(val id: BlankQuizId,
                                     val number: String,
                                     var content: String,
-                                    val referenceAnswer: String,
+                                    var referenceAnswer: String,
                                     val createTime: LocalDateTime,
                                     var lastUpdateTime: LocalDateTime,
                                     var removeTime: LocalDateTime? = null,
@@ -31,6 +31,7 @@ class BlankQuiz private constructor(val id: BlankQuizId,
     fun revise(content: String, referenceAnswer: String) {
         validateBlankQuiz(content, referenceAnswer)
         this.content = content
+        this.referenceAnswer = referenceAnswer
         lastUpdateTime = LocalDateTime.now()
     }
 
