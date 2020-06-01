@@ -1,10 +1,10 @@
 package exam.blankquizcontext.application
 
-import exam.blankquizcontext.userinterface.presentation.BlankQuizCreateCommand
-import exam.blankquizcontext.userinterface.presentation.BlankQuizUpdateCommand
 import exam.blankquizcontext.domain.model.blankquiz.BlankQuiz
 import exam.blankquizcontext.domain.model.blankquiz.BlankQuizId
 import exam.blankquizcontext.domain.model.blankquiz.BlankQuizRepository
+import exam.blankquizcontext.userinterface.presentation.BlankQuizCreateCommand
+import exam.blankquizcontext.userinterface.presentation.BlankQuizUpdateCommand
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -14,7 +14,7 @@ class BlankQuizApplicationService @Autowired constructor(private val blankQuizRe
     fun createBlankQuiz(command: BlankQuizCreateCommand): BlankQuiz {
         val blankQuizId = blankQuizRepository.nextBlankQuizId()
 
-        val blankQuiz = BlankQuiz.create(blankQuizId, command.number, command.content)
+        val blankQuiz = BlankQuiz.create(blankQuizId, command.number, command.content, command.referenceAnswer)
         blankQuizRepository.save(blankQuiz)
 
         return blankQuiz
@@ -23,12 +23,15 @@ class BlankQuizApplicationService @Autowired constructor(private val blankQuizRe
     fun reviseBlankQuiz(id: BlankQuizId, command: BlankQuizUpdateCommand) {
         val blankQuiz = blankQuizRepository.find(id)
 
-        blankQuiz.revise(command.content)
+        blankQuiz.revise(command.content, command.referenceAnswer)
         blankQuizRepository.save(blankQuiz)
     }
 
     fun removeBlankQuiz(id: BlankQuizId) {
-        blankQuizRepository.delete(id)
+        val blankQuiz = blankQuizRepository.find(id)
+
+        blankQuiz.remove()
+        blankQuizRepository.save(blankQuiz)
     }
 
     fun getAll(): List<BlankQuiz> {

@@ -29,10 +29,6 @@ class MemoryBlankQuizRepository : BlankQuizRepository {
         blankQuizzes.add(blankQuiz)
     }
 
-    override fun delete(blankQuizId: BlankQuizId) {
-        blankQuizzes.removeIf { it.id.sameAs(blankQuizId) }
-    }
-
     override fun getAll(): List<BlankQuiz> {
         return blankQuizzes.toList()
     }
