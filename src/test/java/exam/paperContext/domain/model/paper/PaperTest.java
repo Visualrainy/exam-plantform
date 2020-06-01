@@ -23,7 +23,10 @@ public class PaperTest {
 
         List<BlankQuiz> blankQuizzes = Arrays.asList(
                 new BlankQuiz(firstQuizId, 10),
-                new BlankQuiz(secondQuizId, 15)
+                new BlankQuiz(secondQuizId, 15),
+                new BlankQuiz(secondQuizId, 5),
+                new BlankQuiz(secondQuizId, 20),
+                new BlankQuiz(secondQuizId, 25)
         );
 
         Paper paper = Paper.assemble(paperId, teacherId, blankQuizzes);
@@ -32,7 +35,7 @@ public class PaperTest {
 
         assertThat(paper.getPaperId(), is(new PaperId("paper-a4c68d5d-6c18-4707-b8c2-1fd18846ebf1")));
         assertThat(paper.getCreateTime(), instanceOf(LocalDateTime.class));
-        assertThat(paper.getQuizzes().size(), is(2));
+        assertThat(paper.getQuizzes().size(), is(5));
     }
 
     @Test
