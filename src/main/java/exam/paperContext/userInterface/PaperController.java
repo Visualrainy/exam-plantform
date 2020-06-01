@@ -1,11 +1,12 @@
 package exam.paperContext.userInterface;
 
-import exam.paperContext.application.AssemblePaperCommand;
 import exam.paperContext.application.PaperService;
 import exam.paperContext.domain.model.paper.Paper;
 import exam.paperContext.domain.model.paper.PaperId;
 import exam.paperContext.domain.model.paper.PaperReadRepository;
 import exam.paperContext.infrastructure.po.PaperPO;
+import exam.paperContext.userInterface.command.AssemblePaperCommand;
+import exam.paperContext.userInterface.query.PaperResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;

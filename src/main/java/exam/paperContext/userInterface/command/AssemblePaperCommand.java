@@ -1,4 +1,4 @@
-package exam.paperContext.application;
+package exam.paperContext.userInterface.command;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

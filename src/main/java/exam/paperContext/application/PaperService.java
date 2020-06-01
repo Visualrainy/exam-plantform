@@ -4,6 +4,7 @@ import exam.paperContext.domain.model.paper.BlankQuiz;
 import exam.paperContext.domain.model.paper.Paper;
 import exam.paperContext.domain.model.paper.PaperId;
 import exam.paperContext.domain.model.paper.PaperRepository;
+import exam.paperContext.userInterface.command.AssemblePaperCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

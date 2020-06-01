@@ -2,9 +2,13 @@ package exam.paperContext.infrastructure.po;
 
 import exam.blankquizcontext.domain.model.blankquiz.BlankQuiz;
 import exam.paperContext.common.mapper.ModelMapperFactory;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Setter
+@Getter
 public class BlankQuizPO {
     private String id;
     private String number;
