@@ -1,0 +1,16 @@
+@startuml
+
+Actor Teacher
+
+Teacher -> BlankQuizController: PUT /blank-quizzes/{id}
+BlankQuizController -> BlankQuizApplicationService: reviseBlankQuiz()
+BlankQuizApplicationService -> BlankQuizRepository: find()
+entity BlankQuiz
+database BlankQuizDB
+BlankQuizRepository -> BlankQuizDB: Select ***
+BlankQuizRepository -> BlankQuizRepository: transform()
+BlankQuizApplicationService -> BlankQuiz: revise()
+BlankQuizApplicationService -> BlankQuizRepository: save()
+BlankQuizRepository -> BlankQuizDB: update ***
+
+@enduml
