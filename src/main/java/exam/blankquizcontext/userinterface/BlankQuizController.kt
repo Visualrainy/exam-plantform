@@ -1,12 +1,13 @@
 package exam.blankquizcontext.userinterface
 
 import exam.blankquizcontext.application.BlankQuizApplicationService
+import exam.blankquizcontext.common.mapper.ModelMapperFactory
+import exam.blankquizcontext.domain.model.blankquiz.BlankQuizId
 import exam.blankquizcontext.userinterface.presentation.BlankQuizCreateCommand
 import exam.blankquizcontext.userinterface.presentation.BlankQuizResponse
 import exam.blankquizcontext.userinterface.presentation.BlankQuizUpdateCommand
-import exam.blankquizcontext.common.mapper.ModelMapperFactory
-import exam.blankquizcontext.domain.model.blankquiz.BlankQuizId
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -21,6 +22,7 @@ class BlankQuizController @Autowired constructor(val blankQuizApplicationService
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     fun createBlankQuiz(@RequestBody blankQuizCreateCommand: BlankQuizCreateCommand): BlankQuizResponse? {
         val blankQuiz = blankQuizApplicationService.createBlankQuiz(blankQuizCreateCommand)
 
@@ -28,11 +30,13 @@ class BlankQuizController @Autowired constructor(val blankQuizApplicationService
     }
 
     @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     fun updateBlankQuiz(@PathVariable id: BlankQuizId, @RequestBody blankQuizUpdateCommand: BlankQuizUpdateCommand) {
         blankQuizApplicationService.reviseBlankQuiz(id, blankQuizUpdateCommand)
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deleteBlankQuiz(@PathVariable id: BlankQuizId) {
         blankQuizApplicationService.removeBlankQuiz(id)
     }
