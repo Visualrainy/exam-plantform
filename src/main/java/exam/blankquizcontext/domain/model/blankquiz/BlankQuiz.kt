@@ -14,7 +14,8 @@ class BlankQuiz private constructor(val id: BlankQuizId,
     companion object {
         fun create(id: BlankQuizId, number: String, content: String, referenceAnswer: String): BlankQuiz {
             validateBlankQuiz(content, referenceAnswer)
-            return BlankQuiz(id, number, content, referenceAnswer, LocalDateTime.now(), LocalDateTime.now())
+            val now = LocalDateTime.now()
+            return BlankQuiz(id, number, content, referenceAnswer, now, now)
         }
 
         private fun validateBlankQuiz(content: String, referenceAnswer: String) {
