@@ -14,7 +14,7 @@ class BlankQuizApplicationService @Autowired constructor(private val blankQuizRe
     fun createBlankQuiz(command: BlankQuizCreateCommand): BlankQuiz {
         val blankQuizId = blankQuizRepository.nextBlankQuizId()
 
-        val blankQuiz = BlankQuiz.create(blankQuizId, command.number, command.score, command.description)
+        val blankQuiz = BlankQuiz.create(blankQuizId, command.number, command.content)
         blankQuizRepository.save(blankQuiz)
 
         return blankQuiz
@@ -23,7 +23,7 @@ class BlankQuizApplicationService @Autowired constructor(private val blankQuizRe
     fun reviseBlankQuiz(id: BlankQuizId, command: BlankQuizUpdateCommand) {
         val blankQuiz = blankQuizRepository.find(id)
 
-        blankQuiz.revise(command.score, command.description)
+        blankQuiz.revise(command.content)
         blankQuizRepository.save(blankQuiz)
     }
 

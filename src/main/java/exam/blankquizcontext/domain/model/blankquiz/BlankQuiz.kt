@@ -4,28 +4,23 @@ import exam.blankquizcontext.domain.shared.Entity
 
 class BlankQuiz private constructor(val id: BlankQuizId,
                                     val number: String,
-                                    var score: Int,
-                                    var description: String) : Entity<BlankQuiz> {
+                                    var content: String) : Entity<BlankQuiz> {
     companion object {
-        private const val MAX_SCORE = 100
-        private const val MIN_SCORE = 1
-
-        fun create(id: BlankQuizId, number: String, score: Int, description: String): BlankQuiz {
-            validateBlankQuizScore(score)
-            return BlankQuiz(id, number, score, description)
+        fun create(id: BlankQuizId, number: String, content: String): BlankQuiz {
+            validateBlankQuizContent(content)
+            return BlankQuiz(id, number, content)
         }
 
-        private fun validateBlankQuizScore(score: Int) {
-            if (score > MAX_SCORE || score < MIN_SCORE) {
-                throw IllegalBlankQuizException(score)
+        private fun validateBlankQuizContent(content: String) {
+            if (content.isNullOrBlank()) {
+                throw IllegalBlankQuizContentException()
             }
         }
     }
 
-    fun revise(score: Int, description: String) {
-        validateBlankQuizScore(score)
-        this.score = score
-        this.description = description
+    fun revise(content: String) {
+        validateBlankQuizContent(content)
+        this.content = content
     }
 
     override fun sameAs(other: BlankQuiz): Boolean {
