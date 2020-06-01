@@ -31,7 +31,7 @@ public class Paper implements Entity<Paper> {
         }
     }
 
-    public Collection<Object> getQuizzes() {
+    public Collection<BlankQuiz> getQuizzes() {
         return Collections.unmodifiableList(blankQuizzes);
     }
 
