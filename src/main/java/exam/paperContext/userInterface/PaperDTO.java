@@ -11,5 +11,5 @@ public class PaperDTO {
 
     public static PaperDTO from(PaperId paperId) {
         return new PaperDTO("papers/" + paperId);
-    };
+    }
 }
